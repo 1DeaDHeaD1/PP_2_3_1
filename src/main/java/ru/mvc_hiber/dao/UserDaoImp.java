@@ -31,7 +31,7 @@ public class UserDaoImp implements UserDao {
     public User findById(Long id) {
         TypedQuery<User> query = entityManager.createQuery("from User u where u.id = :id", User.class);
         query.setParameter("id", id);
-        return query.getResultList().get(0);
+        return query.getSingleResult();
     }
 
     @Override
